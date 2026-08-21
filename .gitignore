@@ -1,0 +1,57 @@
+# Runtime configuration
+config/runtime.env
+secrets/
+.env
+
+# Infrastructure discovered data
+state/*
+!state/.gitkeep
+
+# Generated runtime files
+runtime/*
+!runtime/.gitkeep
+
+# Generated reports
+reports/*
+!reports/.gitkeep
+
+# Credentials / keys
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Infrastructure artifacts
+*.iso
+*.raw
+*.qcow2
+*.img
+*.kernel
+*.initramfs
+
+# Terraform / OpenTofu state
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Logs / temporary
+*.log
+*.tmp
+*.bak
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Lifecycle intelligence cache
+lifecycle/cache/*
+!lifecycle/cache/.gitkeep

@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+COMMAND="${1:-help}"
+shift || true
+
+case "$COMMAND" in
+
+    init)
+        exec "${PROJECT_ROOT}/core/init.sh" "$@"
+        ;;
+
+    discover)
+        exec "${PROJECT_ROOT}/core/discover.sh" "$@"
+        ;;
+
+    identify)
+        exec "${PROJECT_ROOT}/core/identify.sh" "$@"
+        ;;
+
+    enrich)
+        exec "${PROJECT_ROOT}/core/enrich.sh" "$@"
+        ;;
+
+    audit)
+        exec "${PROJECT_ROOT}/core/audit.sh" "$@"
+        ;;
+
+    status)
+        exec "${PROJECT_ROOT}/core/status.sh" "$@"
+        ;;
+
+    help|--help|-h)
+        cat <<'HELP'
+
+Infrastructure Platform Engine
+==============================
+
+Infrastructure discovery, assessment and automation platform.
+
+Usage:
+
+  ./platform init
+      Create a new infrastructure environment.
+
+  ./platform discover
+      Discover infrastructure and build inventory.
+
+  ./platform identify
+      Identify and prioritize discovered software.
+
+  ./platform enrich
+      Research discovered software using external sources.
+
+  ./platform audit
+      Analyze discovered infrastructure.
+
+  ./platform status
+      Show current environment status.
+
+
+Planned capabilities:
+
+  ./platform recommend
+  ./platform plan
+  ./platform apply
+  ./platform validate
+  ./platform report
+
+HELP
+        ;;
+
+    *)
+        echo "Unknown command: $COMMAND"
+        echo
+        echo "Run:"
+        echo "  ./platform help"
+        exit 1
+        ;;
+esac
