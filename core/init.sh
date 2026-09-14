@@ -18,11 +18,11 @@ echo
 echo "Create infrastructure environment"
 echo
 
-read -rp "Environment name (example: customer-lab): " ENVIRONMENT_NAME
+read -rp "Environment name (example: customer-platform): " ENVIRONMENT_NAME
 
 while [[ -z "$ENVIRONMENT_NAME" ]]; do
     echo "Environment name cannot be empty."
-    read -rp "Environment name (example: customer-lab): " ENVIRONMENT_NAME
+    read -rp "Environment name (example: customer-platform): " ENVIRONMENT_NAME
 done
 
 echo
